@@ -8,86 +8,77 @@
   body {
     margin: 0;
     height: 100vh;
+    background: #ffffff;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ffffff, #f2f2f2);
-    overflow: hidden;
+    font-family: Arial, sans-serif;
     text-align: center;
+    overflow: hidden;
   }
 
   h1 {
-    font-size: 2.8em;
-    color: #444;
-    text-shadow: 1px 1px 5px #ddd;
-  }
-
-  .buttons {
-    margin-top: 40px;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
   }
 
   button {
-    padding: 15px 35px;
+    padding: 14px 30px;
     font-size: 18px;
+    border-radius: 30px;
     border: none;
-    border-radius: 40px;
     cursor: pointer;
-    margin: 15px;
-    transition: 0.3s;
+    margin: 10px;
   }
 
   #yes {
-    background-color: #ff4d88;
+    background-color: #ff5f9e;
     color: white;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-  }
-
-  #yes:hover {
-    background-color: #e6005c;
-    transform: scale(1.15);
   }
 
   #no {
-    background-color: #e6e6e6;
+    background-color: #eeeeee;
     color: #333;
     position: absolute;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
   }
 </style>
 </head>
 
 <body>
 
-<!-- Background Music -->
+<!-- Background music -->
 <audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3" type="audio/mp3">
 </audio>
 
 <h1>Kunal, will you be my Valentine 😗?</h1>
 
-<div class="buttons">
-  <button id="yes" onclick="yesClicked()">Yes 🤍</button>
+<div>
+  <button id="yes">Yes 🤍</button>
   <button id="no">No 🙈</button>
 </div>
 
 <script>
-function yesClicked() {
+/* YES BUTTON */
+document.getElementById("yes").addEventListener("click", function () {
   document.body.innerHTML = `
     <h1>THE OBVIOUS CHOICE! 😎</h1>
-    <p style="font-size:24px;color:#555;">
+    <p style="font-size:22px;color:#555;">
       Hah! I knew it 🤍
     </p>
 
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGZ3ZzJpZXp5b2R0bGZtZGVpZ3k4c2N2N2F2ZWF0M3M0a2x3cCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/mCRJDo24UvJMA/giphy.gif"
-         width="300"
-         style="margin-top:20px;border-radius:20px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
+    <!-- Sweet Bubu Dudu GIF -->
+    <img 
+      src="https://media.giphy.com/media/2xPGQCgJ72jHEevgm6/giphy.gif" 
+      width="300"
+      style="margin-top:20px;border-radius:20px;">
   `;
-}
+});
 
+/* NO BUTTON */
 const noBtn = document.getElementById("no");
-
 const messages = [
   "Uh huh choose again 🥺",
   "Invalid choice 🙄",
@@ -95,17 +86,17 @@ const messages = [
   "You mean, yes? 🤨"
 ];
 
-let count = 0;
+let index = 0;
 
-noBtn.addEventListener("mouseover", () => {
+noBtn.addEventListener("mouseover", function () {
   const x = Math.random() * (window.innerWidth - 120);
   const y = Math.random() * (window.innerHeight - 60);
 
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
 
-  noBtn.innerText = messages[count % messages.length];
-  count++;
+  noBtn.innerText = messages[index % messages.length];
+  index++;
 });
 </script>
 
