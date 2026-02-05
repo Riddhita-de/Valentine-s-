@@ -1,38 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Valentine?</title>
-  <style>
-    body {
-      text-align: center;
-      font-family: Arial;
-      background: pink;
-    }
-    button {
-      padding: 15px 25px;
-      font-size: 18px;
-      margin: 20px;
-      position: relative;
-    }
-  </style>
-</head>
-<body>
+<meta charset="UTF-8">
+<title>For Kunal 🤍</title>
 
-<h1>Will you be my Valentine? 💖</h1>
-
-<button onclick="yes()">Yes</button>
-<button id="no">No</button>
-
-<script>
-  function yes() {
-    document.body.innerHTML = "<h1>YAY 💘 I knew it!</h1>";
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffffff, #f2f2f2);
+    overflow: hidden;
+    text-align: center;
   }
 
-  const noBtn = document.getElementById("no");
-  noBtn.addEventListener("mouseover", () => {
-    noBtn.style.left = Math.random() * 200 + "px";
-    noBtn.style.top = Math.random() * 200 + "px";
-  });
+  h1 {
+    font-size: 2.8em;
+    color: #444;
+    text-shadow: 1px 1px 5px #ddd;
+  }
+
+  .buttons {
+    margin-top: 40px;
+  }
+
+  button {
+    padding: 15px 35px;
+    font-size: 18px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    margin: 15px;
+    transition: 0.3s;
+  }
+
+  #yes {
+    background-color: #ff4d88;
+    color: white;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  }
+
+  #yes:hover {
+    background-color: #e6005c;
+    transform: scale(1.15);
+  }
+
+  #no {
+    background-color: #e6e6e6;
+    color: #333;
+    position: absolute;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<h1>Kunal, will you be my Valentine 😗?</h1>
+
+<div class="buttons">
+  <button id="yes" onclick="yesClicked()">Yes 🤍</button>
+  <button id="no">No 🙈</button>
+</div>
+
+<script>
+
+//// YES CLICK FUNCTION
+function yesClicked() {
+  document.body.innerHTML = `
+    <h1>THE OBVIOUS CHOICE! 😎</h1>
+    <p style="font-size:24px;color:#555;">
+      Hah! I knew it 🤍
+    </p>
+
+    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif"
+         width="300"
+         style="margin-top:20px;border-radius:20px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
+  `;
+}
+
+//// NO BUTTON LOGIC
+const noBtn = document.getElementById("no");
+
+const messages = [
+  "Uh huh choose again 🥺",
+  "Invalid choice 🙄",
+  "Error! 🫥",
+  "You mean, yes? 🤨"
+];
+
+let count = 0;
+
+noBtn.addEventListener("mouseover", () => {
+
+  // Move button
+  const x = Math.random() * (window.innerWidth - 120);
+  const y = Math.random() * (window.innerHeight - 60);
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+
+  // Change text
+  noBtn.innerText = messages[count % messages.length];
+  count++;
+});
+
 </script>
 
 </body>
