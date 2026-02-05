@@ -73,8 +73,6 @@
 </div>
 
 <script>
-
-//// YES CLICK FUNCTION
 function yesClicked() {
   document.body.innerHTML = `
     <h1>THE OBVIOUS CHOICE! 😎</h1>
@@ -82,13 +80,12 @@ function yesClicked() {
       Hah! I knew it 🤍
     </p>
 
-    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif"
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGZ3ZzJpZXp5b2R0bGZtZGVpZ3k4c2N2N2F2ZWF0M3M0a2x3cCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/mCRJDo24UvJMA/giphy.gif"
          width="300"
          style="margin-top:20px;border-radius:20px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
   `;
 }
 
-//// NO BUTTON LOGIC
 const noBtn = document.getElementById("no");
 
 const messages = [
@@ -101,19 +98,15 @@ const messages = [
 let count = 0;
 
 noBtn.addEventListener("mouseover", () => {
-
-  // Move button
   const x = Math.random() * (window.innerWidth - 120);
   const y = Math.random() * (window.innerHeight - 60);
 
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
 
-  // Change text
   noBtn.innerText = messages[count % messages.length];
   count++;
 });
-
 </script>
 
 </body>
