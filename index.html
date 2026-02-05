@@ -48,7 +48,7 @@
 
 <body>
 
-<!-- Background music -->
+<!-- Background Music -->
 <audio autoplay loop>
   <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3" type="audio/mp3">
 </audio>
@@ -61,24 +61,25 @@
 </div>
 
 <script>
-/* YES BUTTON */
-document.getElementById("yes").addEventListener("click", function () {
+
+/* YES CLICK */
+document.getElementById("yes").onclick = function () {
   document.body.innerHTML = `
-    <h1>THE OBVIOUS CHOICE! 😎</h1>
+    <h1>THE OBVIOUS CHOICE! 😎 ❤️</h1>
     <p style="font-size:22px;color:#555;">
-      Hah! I knew it 🤍
+      Hah! I knew it ❤️
     </p>
 
-    <!-- Sweet Bubu Dudu GIF -->
     <img 
-      src="https://media.giphy.com/media/2xPGQCgJ72jHEevgm6/giphy.gif" 
+      src="https://i.pinimg.com/originals/7e/57/91/7e5791a4d6c2b6d5c5c4c2d0f2a6e6c5.gif"
       width="300"
       style="margin-top:20px;border-radius:20px;">
   `;
-});
+};
 
-/* NO BUTTON */
+/* RUNAWAY NO BUTTON */
 const noBtn = document.getElementById("no");
+
 const messages = [
   "Uh huh choose again 🥺",
   "Invalid choice 🙄",
@@ -86,7 +87,7 @@ const messages = [
   "You mean, yes? 🤨"
 ];
 
-let index = 0;
+let i = 0;
 
 noBtn.addEventListener("mouseover", function () {
   const x = Math.random() * (window.innerWidth - 120);
@@ -95,9 +96,10 @@ noBtn.addEventListener("mouseover", function () {
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
 
-  noBtn.innerText = messages[index % messages.length];
-  index++;
+  noBtn.innerText = messages[i % messages.length];
+  i++;
 });
+
 </script>
 
 </body>
